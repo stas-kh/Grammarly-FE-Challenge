@@ -1,49 +1,80 @@
+*, input {
+	font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
+}
+
 html, body {
 	width: 100%;
 	height: 100%;
-	margin: 20px;
+	margin: 0;
 	padding: 0;
 	overflow: hidden;
+}
+
+header {
+	background: #1abc9c;
+	color: white;
+	font-size: 1.3em;
+	padding: 10px;
+	overflow: hidden;
+}
+
+header .configuration {
+	float: left;
+}
+
+header > button {
+	float: right;
+	padding: 10px;
+	font-size: 2em;
 }
 
 #root {
 	width: 600px;
 	height: 600px;
-	margin: 20px 0;
+	margin: 80px auto 0;
 }
 
 #house {
-	background-image: url('http://www.eldoradostone.com/wp-content/uploads/2015/11/ES_TundraBrick_Ashland_prof.jpg');
-	padding: 20px;
+	padding: 5px;
 	height: 100%;
+	position: relative;
+	border: 5px solid #224889;
+	border-top: none;
+	box-shadow: -15px 15px 10px silver;
+}
+
+#house::before {
+	content: 'Build the house';
+	position: absolute;
+	text-align: center;
+	top: -30px;
+	height: 20px;
+	left: -5px;
+	right: -5px;
+	background: #A6CFFF;
+	border: 5px solid #224889;
 }
 
 .room {
-	float: left;
-	font-size: 3vw;
-	background-image: url("http://dc428.4shared.com/img/-vayshJ-/s3/ClassDoor.png");
-	background-size: auto 100%;
-	background-repeat: no-repeat;
-	background-position: center center;
-	transition: 1s transform linear;
-	transform-origin: left;
-	height: 100%;
 	position: relative;
+	height: 100%;
+	float: left;
+	border: 3px solid #224889;
+	background: #79AAFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .room.opened {
-	transform: rotateY(-45deg);
-	transform-origin: 8px;
-	transition: .5s linear;
-	filter: blur(5px);
-	filter: brightness(0.4);
+	background: #f1c40f;
 }
 
 .room > span {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
 	background: #2e2e2e;
 	color: white;
+	font-size: 1.2em;
+	border-radius: 5px;
+	padding: 5px;
 }

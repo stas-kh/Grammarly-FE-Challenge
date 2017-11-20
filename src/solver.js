@@ -1,31 +1,27 @@
 import * as pathFinder from "javascript-astar";
 
-export function solve(times, start, end) {
-  const house = new House(times);
-  const graph = new pathFinder.Graph(times, { diagonal: false });
+import { Path } from "./path";
 
-  const startWith = graph.grid[house.getFloor(start.floor)][house.getRoom(start.room)];
-  const endWith = graph.grid[house.getFloor(end.floor)][house.getRoom(end.room)];
+export function solve(house, start, end) {
+    const graph = new pathFinder.Graph(house.houseLayout, {diagonal: false});
 
-  const resultPath = pathFinder.astar.search(graph, startWith, endWith);
+    let startWith, endWith, startPoint, resultPath;
 
-  return resultPath.map(path => ({
-    floor: house.getFloor(path.x),
-    room: house.getRoom(path.y),
-    animationTime: path.weight
-  }));
+    try {
+        startWith = graph.grid[house.getFloor(start.floor)][house.getRoom(start.room)];
+        endWith = graph.grid[house.getFloor(end.floor)][house.getRoom(end.room)];
+        startPoint = [new Path(start.floor, start.room, 0)];
+
+        resultPath = pathFinder.astar.search(graph, startWith, endWith);
+    } catch (err) {
+        alert('It is impossible to reach the specified room. Please check the configuration');
+        return [];
+    }
+
+    if (resultPath.length === 0) {
+        alert('It seems that you have no direct path to the specified room. Please enter another initial data');
+        return [];
+    }
+
+    return startPoint.concat(resultPath.map(path => new Path(house.getFloor(path.x), house.getRoom(path.y), path.weight)));
 }
-
-class House {
-  constructor(array) {
-    this.array = array;
-  }
-  getFloor(floor) {
-    return (this.array.length - 1) - parseInt(floor, 10);
-  }
-  getRoom(room) {
-    return parseInt(room, 10);
-  }
-}
-
-window.solve = solve;
