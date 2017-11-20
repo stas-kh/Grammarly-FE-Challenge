@@ -1,4 +1,4 @@
-#Find the optimal path for the lift
+# Find the optimal path for the lift
 In this building, the lift can go to any apartment.
 Find the optimal path for the lift, taking into account that
 the time needed to pass through an apartment varies.
@@ -9,12 +9,12 @@ of the building, starting with 0.
 ## Codesandbox
 [Sandbox example](https://codesandbox.io/s/github/stas-kh/Grammarly-FE-Challenge/tree/master/)
 
-##Input
+## Input
 A matrix T with N*M elements specifying the time it takes for
 the lift to pass through an apartment. T[i,j] equals 0 means that there
 is no way through that apartment [i,j].
 
-##Output
+## Output
 Link to a Codepen project with 
 - a building HTML layout
 - input fields for floor/apartment 
@@ -23,11 +23,11 @@ Link to a Codepen project with
 Lift movement should be animated proportionally to the time needed
 to pass through an apartment. 
 
-##Constraints
+## Constraints
 0 < N, M <= 100
 0 <= T[i, j] <= 5000
 
-##Example
+## Example
 ```typescript
 const A = [
   [100, 210, 200],
@@ -40,7 +40,7 @@ Input: Move lift to floor 2 flat 1 (value 210)
 Expected lift movement: 
 [[0, 1], [0, 2], [1, 2], [2, 2], [2, 1]], total time 520 (=50+20+40+200+210)
 
-##Solution evaluation criteria
+## Solution evaluation criteria
 - Code quality
 - Visual appearance
 - Implementation conciseness and simplicity
