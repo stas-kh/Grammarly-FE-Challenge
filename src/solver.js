@@ -8,7 +8,6 @@ export function solve(times, start, end) {
   const endWith = graph.grid[house.getFloor(end.floor)][house.getRoom(end.room)];
 
   const resultPath = pathFinder.astar.search(graph, startWith, endWith);
-  //const resultLength = resultPath.reduce((memo, curr) => memo + curr.weight, 0);
 
   return resultPath.map(path => ({
     floor: house.getFloor(path.x),
@@ -22,10 +21,10 @@ class House {
     this.array = array;
   }
   getFloor(floor) {
-    return (this.array.length - 1) - parseInt(floor);
+    return (this.array.length - 1) - parseInt(floor, 10);
   }
   getRoom(room) {
-    return parseInt(room);
+    return parseInt(room, 10);
   }
 }
 

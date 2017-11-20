@@ -3,6 +3,7 @@
   "description": "Starter for Grammarly Frontend Challenge, see readme.md for details.",
   "version": "0.0.5",
   "dependencies": {
+    "create-react-app": "^1.4.3",
     "javascript-astar": "0.4.1"
   },
   "devDependencies": {
