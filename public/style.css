@@ -45,7 +45,7 @@ header > button {
 }
 
 #house::before {
-	content: 'Build the house';
+	content: 'Reach the room';
 	position: absolute;
 	text-align: center;
 	top: -30px;
