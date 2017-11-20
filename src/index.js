@@ -2,6 +2,8 @@ import { solve } from "./solver";
 import { times } from "./data";
 import { House } from "./house";
 
+import './style.css';
+
 window.go = () => {
   const house = new House(times);
   const res = solve(
