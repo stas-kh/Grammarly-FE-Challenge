@@ -45,14 +45,12 @@ window.createRoom = (roomWeight, roomIndex, floorIndex, width) => {
     room.classList.add('room');
     room.classList.add(`room-${floorIndex}-${roomIndex}`);
 
-    if (roomWeight === 0) {
-        room.classList.add('empty-room');
-    }
-
     room.style.width = width;
 
-    textHolder.appendChild(text);
-    room.appendChild(textHolder);
+    if (roomWeight > 0) {
+        textHolder.appendChild(text);
+        room.appendChild(textHolder);
+    }
 
     return room;
 };
